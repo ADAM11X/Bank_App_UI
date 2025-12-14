@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .message-card {
+            background-color: #ffe7e7;
+            border: 1px solid #ffb3b3;
+            color: #800000;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #c82333;
+        }
+        p {
+            margin: 10px 0;
+            color: #666;
+        }
+        a button {
+            background-color: #28a745;
+        }
+        a button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    {% if message %}
+        <div class="message-card">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <h1>Enter your information</h1>
+        <form method="POST" action="{{ url_for('log_in') }}">
+            <input type="text" name="user" placeholder="User Name" required>
+            <input type="password" name="mot_de_passe" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div style="margin-top: 15px;">
+            <p>Create Account</p>
+            <a href="{{ url_for('create_account') }}">
+                <button>Sign Up</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

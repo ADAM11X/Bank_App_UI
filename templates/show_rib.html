@@ -1,0 +1,54 @@
+// {% extends "home.html" %}
+{% block title %}Balance{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-white text-center border-0">
+                    <h2 class="mb-0" style="color: #dc3545; font-weight: bold;">RIB</h2>
+                </div>
+                <div class="card-body text-center">
+                    {% if message %}
+                        <div class="alert alert-info rounded-pill" role="alert" style="background-color: #f8f9fa; color: #495057; border: 1px solid #dee2e6;">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    <div class="balance-amount">
+                        <h1 class="display-3 font-weight-bold" style="color: #28a745; animation: slideIn 0.8s ease-out;">${{ message2 }}</h1>
+                        <p class="text-muted mt-2">Current Balance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    .card {
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .alert {
+        animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+{% endblock %}

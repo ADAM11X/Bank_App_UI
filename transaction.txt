@@ -1,0 +1,6 @@
+{
+    "adam": {
+        "receveiver": "abdo",
+        "amount": 10000
+    }
+}
